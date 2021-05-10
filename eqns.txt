@@ -1,0 +1,50 @@
+img0:
+red = cos(pi*sin(pi*sin(pi*y)))*cos(pi*cos(pi*cos(pi*sin(pi*x))))
+green = sin(pi*sin(pi*sin(pi*sin(pi*x)*sin(pi*y)*sin(pi*cos(pi*y)*x))))
+blue = cos(pi*sin(pi*sin(pi*cos(pi*x))*sin(pi*sin(pi*y))))
+
+img1:
+red = cos(pi*sin(pi*sin(pi*sin(pi*y*x*cos(pi*cos(pi*y)))*y)))
+green = cos(pi*cos(pi*cos(pi*x*x*sin(pi*y)))*cos(pi*x)*cos(pi*cos(pi*x*y)*y))
+blue = sin(pi*sin(pi*cos(pi*sin(pi*cos(pi*x))*x)))
+
+img2:
+red = cos(pi*cos(pi*x)*sin(pi*sin(pi*cos(pi*sin(pi*x)))))
+green = sin(pi*cos(pi*y))
+blue = cos(pi*sin(pi*cos(pi*sin(pi*cos(pi*x)))*y*sin(pi*cos(pi*sin(pi*cos(pi*cos(pi*x)))))))
+
+img3:
+red = cos(pi*sin(pi*sin(pi*cos(pi*sin(pi*x))*cos(pi*x)*x)))
+green = cos(pi*sin(pi*sin(pi*cos(pi*x)))*sin(pi*sin(pi*cos(pi*cos(pi*y))*sin(pi*cos(pi*y)))))
+blue = sin(pi*cos(pi*sin(pi*y*x)*x*sin(pi*sin(pi*y)))*cos(pi*sin(pi*cos(pi*x))*cos(pi*x)*x*y*y))
+
+img4:
+red = sin(pi*sin(pi*cos(pi*cos(pi*x))*cos(pi*x)))*cos(pi*cos(pi*y)*y)
+green = cos(pi*sin(pi*sin(pi*cos(pi*x*cos(pi*sin(pi*y))*y))))
+blue = cos(pi*cos(pi*sin(pi*cos(pi*y)*sin(pi*y*y))))
+
+img5:
+red = sin(pi*cos(pi*cos(pi*x))*cos(pi*sin(pi*sin(pi*sin(pi*x)))))
+green = sin(pi*sin(pi*sin(pi*sin(pi*x))*cos(pi*sin(pi*sin(pi*x)))))
+blue = sin(pi*cos(pi*sin(pi*sin(pi*y))))
+
+img6:
+red = sin(pi*sin(pi*sin(pi*cos(pi*sin(pi*x))*x*sin(pi*x)))*cos(pi*cos(pi*cos(pi*y))*cos(pi*x))*sin(pi*sin(pi*x*y)))
+green = sin(pi*sin(pi*sin(pi*y*x)*x*sin(pi*y)*x*cos(pi*x*y)*x)*cos(pi*sin(pi*cos(pi*y)*y)))
+blue = sin(pi*cos(pi*cos(pi*x)*x*cos(pi*y)*cos(pi*sin(pi*y))*sin(pi*cos(pi*x))))*cos(pi*sin(pi*cos(pi*x*y*y*sin(pi*y))*sin(pi*y)*x))
+
+img7:
+red = sin(pi*sin(pi*cos(pi*x)*y*sin(pi*x))*sin(pi*cos(pi*cos(pi*x*cos(pi*y)))))
+green = cos(pi*sin(pi*cos(pi*sin(pi*x)))*sin(pi*cos(pi*sin(pi*y)))*y*sin(pi*cos(pi*cos(pi*sin(pi*x)))))
+blue = sin(pi*cos(pi*cos(pi*cos(pi*sin(pi*y))*cos(pi*y)*x)))
+
+img8:
+red = cos(pi*x)
+green = sin(pi*sin(pi*sin(pi*sin(pi*x)*x*cos(pi*cos(pi*x))))*cos(pi*cos(pi*y)))
+blue = cos(pi*cos(pi*sin(pi*x)*sin(pi*y*y)))*x*y*x*y*y*x*sin(pi*sin(pi*y))
+
+img9:
+red = sin(pi*sin(pi*cos(pi*cos(pi*cos(pi*sin(pi*x)*cos(pi*x))))))
+green = sin(pi*sin(pi*sin(pi*cos(pi*x)*cos(pi*y)))*sin(pi*y)*cos(pi*sin(pi*sin(pi*x*y))))*sin(pi*x)
+blue = sin(pi*cos(pi*sin(pi*sin(pi*x))*sin(pi*x)))*cos(pi*y)*sin(pi*cos(pi*sin(pi*y))*y*y*y*cos(pi*sin(pi*x)))
+

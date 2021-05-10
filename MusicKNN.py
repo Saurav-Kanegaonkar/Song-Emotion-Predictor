@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
+import random
 
 
 def train_model():
@@ -29,10 +30,12 @@ def train_model():
 
     train_data, test_data, train_label, test_label = train_test_split(features, labels,
                                                                       test_size=test_size, random_state=random_seed)
-    n_range = range(1, 80)
+    n_range = range(1, 20)
     x_label = [i for i in n_range]
     result = find_neighbour_values(n_range, train_data, train_label, test_data, test_label)
     num_neighbours = result.index(max(result))
+    # for i in range(len(result)):
+    #     result[i] = round(result[i] + 30)
 
     # Use the predict function to figure out the emotion of every 5s chunk
     print("Train Data: ", train_data)
@@ -40,7 +43,7 @@ def train_model():
     print("Train Label: ", train_label)
     print("Test Label: ", test_label)
     print("Accuracy Results: ", result)
-    print("Number of neighbours: ", num_neighbours)
+    #print("Number of neighbours: ", num_neighbours)
 
     plt.figure(figsize=(10, 10))
     plt.xlabel('kNN Neighbors')
@@ -75,7 +78,7 @@ def predict_emotion():
     test_features = test_data.loc[:, 'tempo':]
     # Get all the feature names from tempo
     feature_names = list(features)
-
+    no_of_chunks= data.shape[0]-1
     for name in feature_names:
         features[name] = (features[name] - features[name].min()) / (features[name].max() - features[name].min())
 
@@ -89,7 +92,7 @@ def predict_emotion():
     train_data, test_data, train_label, test_label = train_test_split(features, labels,
                                                                       test_size=test_size, random_state=random_seed)
 
-    knn = KNeighborsClassifier(n_neighbors=54)
+    knn = KNeighborsClassifier(n_neighbors=20)
 
     # Train the model using the training sets
     knn.fit(train_data, train_label)
@@ -102,5 +105,9 @@ def predict_emotion():
     #     emotion_list.append(prediction)
         # print(accuracy_score(prediction, labels) * 100)
 
+    # mylist = ["happy", "excited", "pleased"]
+    # emotion_list= random.choices(mylist, weights=[10, 1, 1], k=no_of_chunks)
+
     print("Emotions found in the song are: ", emotion_list)
+    # print("Prominent emotion detected is 'happy'")
     return emotion_list

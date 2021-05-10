@@ -13,24 +13,12 @@ random.seed()
 # show()
 
 emotion_dict = {
-    'love': 1,
-    'acceptance': 2,
-    'trust': 3,
-    'admiration': 4,
-    'fear': 5,
-    'awe': 6,
-    'sadness': 7,
-    'remorse': 8,
-    'boredom': 9,
-    'annoyance': 10,
-    'aggressiveness': 11,
-    'interest': 12,
-    'anticipation': 13,
-    'serenity': 14,
-    'joy': 15,
-    'ecstasy': 16,
-    'optimism': 17,
-    'surprise': 18
+    'excited': 0,
+    'happy': 1,
+    'peaceful': 2,
+    'depressed': 3,
+    'sad': 4,
+    'angry': 5,
 }
 #
 # colours = []

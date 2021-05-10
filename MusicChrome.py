@@ -4,7 +4,7 @@ import tkinter as tk
 import librosa
 import numpy as np
 import pandas as pd
-import Chrome, SonoKNN
+import Chrome, MusicKNN
 
 from tkinter import filedialog
 from pydub import AudioSegment
@@ -12,7 +12,7 @@ from pydub.utils import make_chunks
 from os import listdir
 from os.path import isfile, join
 
-import Sono
+import Music
 
 
 def song_predictor():
@@ -73,9 +73,9 @@ def get_features(path):
     mfcc_delta_mean = pd.Series()
     mfcc_delta_std = pd.Series()
     mfcc_delta_var = pd.Series()
-    rmse_mean = pd.Series()
-    rmse_std = pd.Series()
-    rmse_var = pd.Series()
+    rms_mean = pd.Series()
+    rms_std = pd.Series()
+    rms_var = pd.Series()
     cent_mean = pd.Series()
     cent_std = pd.Series()
     cent_var = pd.Series()
@@ -127,7 +127,7 @@ def get_features(path):
         chroma_cq = librosa.feature.chroma_cqt(y=y, sr=sr)
         chroma_cens = librosa.feature.chroma_cens(y=y, sr=sr)
         melspectrogram = librosa.feature.melspectrogram(y=y, sr=sr)
-        rmse = librosa.feature.rmse(y=y)
+        rms = librosa.feature.rms(y=y)
         cent = librosa.feature.spectral_centroid(y=y, sr=sr)
         spec_bw = librosa.feature.spectral_bandwidth(y=y, sr=sr)
         contrast = librosa.feature.spectral_contrast(S=S, sr=sr)
@@ -167,9 +167,9 @@ def get_features(path):
         mfcc_delta_mean.at[s_id] = np.mean(mfcc_delta)  # mfcc delta
         mfcc_delta_std.at[s_id] = np.std(mfcc_delta)
         mfcc_delta_var.at[s_id] = np.var(mfcc_delta)
-        rmse_mean.at[s_id] = np.mean(rmse)  # rmse
-        rmse_std.at[s_id] = np.std(rmse)
-        rmse_var.at[s_id] = np.var(rmse)
+        rms_mean.at[s_id] = np.mean(rms)  # rms
+        rms_std.at[s_id] = np.std(rms)
+        rms_var.at[s_id] = np.var(rms)
         cent_mean.at[s_id] = np.mean(cent)  # cent
         cent_std.at[s_id] = np.std(cent)
         cent_var.at[s_id] = np.var(cent)
@@ -227,9 +227,9 @@ def get_features(path):
     feature_set['mfcc_delta_mean'] = mfcc_delta_mean  # mfcc delta
     feature_set['mfcc_delta_std'] = mfcc_delta_std
     feature_set['mfcc_delta_var'] = mfcc_delta_var
-    feature_set['rmse_mean'] = rmse_mean  # rmse
-    feature_set['rmse_std'] = rmse_std
-    feature_set['rmse_var'] = rmse_var
+    feature_set['rms_mean'] = rms_mean  # rms
+    feature_set['rms_std'] = rms_std
+    feature_set['rms_var'] = rms_var
     feature_set['cent_mean'] = cent_mean  # cent
     feature_set['cent_std'] = cent_std
     feature_set['cent_var'] = cent_var
@@ -261,15 +261,17 @@ def get_features(path):
     feature_set['frame_std'] = frame_std
     feature_set['frame_var'] = frame_var
 
-    # Converting Dataframe into CSV Excel and JSON file
+    # Converting Dataframe into CSV Excel
     feature_set.to_csv('Dataset/Audio_features.csv')
+    feature_set.to_json('Dataset/Emotion_features.json')
 
 def show_options():
-    print("Welcome to SonoChrome. Please choose one of the options below:")
+    print("\n Welcome to MusicChrome. Please choose one of the options below:")
     print("1. Build Training Set")
     print("2. Train the model and test accuracy")
-    print("3. Predict the emotions in a song")
-    print("4. Press 'x' to quit")
+    print("3. Predict the emotions from the trained set")
+    print("4. Predict the emotions in a song")
+    print("5. Press 'x' to quit")
     user_input = input("Please choose a number: ")
     return user_input
 
@@ -283,14 +285,30 @@ def main():
             get_features('Audio/')
             user_input = show_options()
         elif user_input == '2':
-            Sono.build_model()
+            # Building model using ANN
+            Music.build_model()
+            #Building model using KNN
+            #MusicKNN.train_model()
             user_input = show_options()
         elif user_input == '3':
+            #Predicting the model using ANN
+            emotions = Music.predict_emotion()
+            #Predicting the model using KNN
+            #emotions = MusicKNN.predict_emotion()
+            print(emotions)
+            # num_images = input("Enter number of images you would like as a representation: ")
+            # Chrome.build_image(emotions, int(num_images))
+            user_input = show_options()
+        elif user_input == '4':
             song_predictor()
             get_features('Output/')
-            emotions = Sono.predict_emotion()
-            num_images = input("Enter number of images you would like as a representation: ")
-            Chrome.build_image(emotions, int(num_images))
+            #Predicting the model using ANN
+            emotions = Music.predict_emotion()
+            #Predicting the model using KNN
+            #emotions = MusicKNN.predict_emotion()
+            print(emotions)
+            # num_images = input("Enter number of images you would like as a representation: ")
+            # Chrome.build_image(emotions, int(num_images))
             user_input = show_options()
 
 
