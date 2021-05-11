@@ -30,7 +30,7 @@ In this project I have used ANN to train the model as it gives pretty good predi
 1. Create an empty Output directory for running the code for the first time.
 2. The Output directory should always be empty.
 3. The `Audio_features.csv` file should be empty. Please don't confuse it with `Audio_features_train.csv` file.
-
+4. Create an Audio directory containing some English songs which you want to predict on.
 
 ## About the python files
 
