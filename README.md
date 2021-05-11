@@ -27,8 +27,9 @@ In this project I have used ANN to train the model as it gives pretty good predi
 
 
 ## Important points to remember before executing `MusicChrome.py` each time:
-1. The Output directory should be empty.
-2. The `Audio_features.csv` file should be empty. Please don't confuse it with `Audio_features_train.csv` file.
+1. Create an empty Output directory for running the code for the first time.
+2. The Output directory should always be empty.
+3. The `Audio_features.csv` file should be empty. Please don't confuse it with `Audio_features_train.csv` file.
 
 
 ## About the python files
